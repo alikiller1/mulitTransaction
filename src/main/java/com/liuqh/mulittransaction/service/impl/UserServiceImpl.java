@@ -11,28 +11,33 @@ import com.liuqh.mulittransaction.service.UserService;
 import com.liuqh.mulittransaction.service.ds1.ProductService;
 import com.liuqh.mulittransaction.service.ds2.OrderService;
 
-/**   
- * LL
- * 2020年10月24日 下午4:40:31
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * LL 2020年10月24日 下午4:40:31
  */
 
+@Slf4j
 @Service
-public class UserServiceImpl implements UserService{
-	
+public class UserServiceImpl implements UserService {
+
 	@Autowired
 	private OrderService orderService;
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@Transactional
 	@Override
 	public Order2 insertProductAndOrder(Product p, Order2 o) {
 		productService.insert(p);
 		o.setProductId(p.getId());
-		orderService.insert(o);
-		int i=1/0;
+		try {
+			orderService.insert(o);
+		} catch (Exception e) {
+			log.error(e.getMessage(),e);
+		}
 		return o;
 	}
-	
+
 }

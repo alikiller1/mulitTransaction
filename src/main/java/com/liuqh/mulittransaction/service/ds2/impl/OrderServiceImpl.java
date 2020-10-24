@@ -24,11 +24,13 @@ public class OrderServiceImpl implements OrderService {
 	private ProductMapper productMapper;
 	
 	
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+//	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Transactional(propagation = Propagation.NESTED)
 //	@Transactional
 	@Override
 	public Order2 insert(Order2 o) {
 		orderMapper.insert(o);
+		int i=1/0;
 		return o;
 	}
 
