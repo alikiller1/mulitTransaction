@@ -2,10 +2,7 @@
 /.settings/
 /.classpath
 /.project
-/tmlog.lck
-/tmlog1.log
-/tmlog7.log
+/tm*.lck
 /mulitTransaction.iml
 /.idea/
-/tmlog8.log
-/*.log
+/tm*.log
