@@ -31,7 +31,7 @@ public class ProductMapperTest extends BaseTest {
 	
 	@Test
 	public void testQueryAll() {
-		List<Product> list=produMapper.queryAll();
+		List<Product> list=produMapper.selectAll();
 		System.out.println(list);
 	}
 	

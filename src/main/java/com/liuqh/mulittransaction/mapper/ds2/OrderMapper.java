@@ -11,18 +11,17 @@ import org.springframework.stereotype.Component;
 import com.liuqh.mulittransaction.entity.Order2;
 import com.liuqh.mulittransaction.entity.Product;
 
+
 /**   
  * LL
  * 2020年10月23日 下午4:28:44
  */
-@Mapper
-@Component
-public interface OrderMapper {
+public interface OrderMapper{
 	
 	@Insert("insert into order2(price,product_id) values (#{price},${productId})")
 	@Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
 	public int insert(Order2 o);
 	
 	@Select("select * from order2")
-	List<Product> queryAll();
+	List<Product> selectAll();
 }
