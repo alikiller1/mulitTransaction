@@ -35,7 +35,7 @@ public class JWTUtils {
 
         Calendar instance = Calendar.getInstance();
 
-        instance.add(Calendar.SECOND, 20);
+        instance.add(Calendar.DATE, 1);
 
         // 创建JWT builder
 

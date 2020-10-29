@@ -39,28 +39,16 @@ public class JWTInterceptor implements HandlerInterceptor {
 
         } catch (SignatureVerificationException e) {
 
-            e.printStackTrace();
-
             map.put("msg","无效签名!");
 
         }catch (TokenExpiredException e){
 
-            e.printStackTrace();
-
             map.put("msg","token过期!");
 
         }catch (AlgorithmMismatchException e){
-
-            e.printStackTrace();
-
             map.put("msg","token算法不一致!");
-
         }catch (Exception e){
-
-            e.printStackTrace();
-
             map.put("msg","token无效!!");
-
         }
 
         map.put("state",false);//设置状态为验证失败

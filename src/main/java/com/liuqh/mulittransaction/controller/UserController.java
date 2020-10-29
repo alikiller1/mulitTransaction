@@ -14,9 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-
 @Slf4j
-
 public class UserController {
 
     /**
@@ -83,16 +81,16 @@ public class UserController {
         // 这步完全可以替换成 DecodedJWT verify = JWTUtils.decode(token);
 
         DecodedJWT verify = JWTUtils.verify(token);
-
-        log.info("用户id: [{}]",verify.getClaim("id").asString()); // 通过getClaim获取想要的信息
-
         log.info("用户name: [{}]",verify.getClaim("name").asString());
-
         map.put("state",true);
-
         map.put("msg","请求成功!");
 
         return map;
+    }
+
+    @GetMapping("index")
+    public String index(){
+        return "server is running";
     }
 
 }
